@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import "./globals.css";
-import { satoshi } from "../fonts/font";
+
+import { SessionProvider } from "next-auth/react";
 
 const geistKarla = Karla({
   variable: "--font-geist-karla",
@@ -21,9 +22,11 @@ export default function Layout({
   return (
     <html lang="en">
       <body
-        className={`${geistKarla.variable} ${satoshi.variable} font-karla antialiased`}
+        className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
       >
+         <SessionProvider>
         {children}
+        </SessionProvider>
       </body>
     </html>
   );
